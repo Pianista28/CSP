@@ -1,0 +1,10 @@
+C:\Users\228108\Desktop\Studia PWr\SI\CSP\CSP\bin\Release\netcoreapp2.0\CSP.deps.json
+C:\Users\228108\Desktop\Studia PWr\SI\CSP\CSP\bin\Release\netcoreapp2.0\CSP.runtimeconfig.json
+C:\Users\228108\Desktop\Studia PWr\SI\CSP\CSP\bin\Release\netcoreapp2.0\CSP.runtimeconfig.dev.json
+C:\Users\228108\Desktop\Studia PWr\SI\CSP\CSP\bin\Release\netcoreapp2.0\CSP.dll
+C:\Users\228108\Desktop\Studia PWr\SI\CSP\CSP\bin\Release\netcoreapp2.0\CSP.pdb
+C:\Users\228108\Desktop\Studia PWr\SI\CSP\CSP\obj\Release\netcoreapp2.0\CSP.csproj.CoreCompileInputs.cache
+C:\Users\228108\Desktop\Studia PWr\SI\CSP\CSP\obj\Release\netcoreapp2.0\CSP.AssemblyInfoInputs.cache
+C:\Users\228108\Desktop\Studia PWr\SI\CSP\CSP\obj\Release\netcoreapp2.0\CSP.AssemblyInfo.cs
+C:\Users\228108\Desktop\Studia PWr\SI\CSP\CSP\obj\Release\netcoreapp2.0\CSP.dll
+C:\Users\228108\Desktop\Studia PWr\SI\CSP\CSP\obj\Release\netcoreapp2.0\CSP.pdb
