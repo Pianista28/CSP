@@ -85,7 +85,6 @@ namespace CSP
             {
                 notProcessed.Add(variable);
                 processed.Remove(variable);
-                //board[variable] = 0;
                 return false;
             }
            
@@ -134,18 +133,46 @@ namespace CSP
 
         private int GetNextValue(int variable, int[] domain)
         {
-            return GetNextValueAscending(variable, domain);
+            switch (_valueMode)
+            {
+                case ValueMode.Ascending:
+                    return GetNextValueAscending(variable, domain);
+                case ValueMode.StartEnd:
+                    return GetNextValueStartEnd(variable, domain);
+            }
+
+            return -1;
         }
 
         private int GetNextVariable()
         {
+            switch (_variableMode)
+            {
+                case VariableMode.Ascending:
+                    return GetNextVariableAscending();
+                case VariableMode.StartEnd:
+                    return GetNextVariableStartEnd();
+            }
             return GetNextVariableAscending();
+        }
+
+        private int GetNextVariableAscending()
+        {
+            return notProcessed.Min();
+        }
+
+        private int GetNextVariableStartEnd()
+        {
+            if (processed.Count() % 2 == 0)
+                return notProcessed.Min();
+            return notProcessed.Max();
+
         }
 
         private int GetNextValueAscending(int variable, int[] domain)
         {
             if(domain.Sum() == _numberOfQueens)
-            return (int) Value.NoValue;
+                return (int) Value.NoValue;
             for (int i = board[variable]; i < _numberOfQueens; i++)
             {
                 if (domain[i] == 0)
@@ -154,10 +181,32 @@ namespace CSP
 
             return (int) Value.NoValue;
         }
-        private int GetNextVariableAscending()
+
+        private int GetNextValueStartEnd(int variable, int[] domain)
         {
-            return notProcessed.Min();
+            if (domain.Sum() == _numberOfQueens)
+                return (int)Value.NoValue;
+            if (processed.Count() % 2 == 0)
+            {
+                for (int i = board[variable]; i < _numberOfQueens; i++)
+                {
+                    if (domain[i] == 0)
+                        return i + 1;
+                }
+            }
+            else
+            {
+
+                for (int i = board[variable] == 0 ? _numberOfQueens - 1 : board[variable] - 2 ; i >= 0; i--)
+                {
+                    if (domain[i] == 0)
+                        return i + 1;
+                }
+            }
+
+            return (int)Value.NoValue;
         }
+        
 
         private void SaveSolution()
         {
