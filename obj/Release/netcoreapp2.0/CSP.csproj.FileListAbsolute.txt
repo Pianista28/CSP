@@ -8,3 +8,4 @@ C:\Users\228108\Desktop\Studia PWr\SI\CSP\CSP\obj\Release\netcoreapp2.0\CSP.Asse
 C:\Users\228108\Desktop\Studia PWr\SI\CSP\CSP\obj\Release\netcoreapp2.0\CSP.AssemblyInfo.cs
 C:\Users\228108\Desktop\Studia PWr\SI\CSP\CSP\obj\Release\netcoreapp2.0\CSP.dll
 C:\Users\228108\Desktop\Studia PWr\SI\CSP\CSP\obj\Release\netcoreapp2.0\CSP.pdb
+C:\Users\228108\Desktop\Studia PWr\SI\CSP\CSP\obj\Release\netcoreapp2.0\CSP.csprojResolveAssemblyReference.cache

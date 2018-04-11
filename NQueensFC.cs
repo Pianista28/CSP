@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using System.Dynamic;
 using System.Linq;
+using System.Runtime.ExceptionServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 
@@ -21,6 +23,8 @@ namespace CSP
     /// </summary>
     public class NQueensFC
     {
+        private bool first = true;
+        private Stopwatch watch;
         public int _numberOfQueens { get; set; }
         private static int[] board;
         private static List<int> notProcessed;
@@ -57,6 +61,7 @@ namespace CSP
 
         private bool ProcessFirst()
         {
+            watch = System.Diagnostics.Stopwatch.StartNew();
             var firstVariable = GetNextVariable();
 
             int nextValue = GetNextValue(firstVariable, new int[_numberOfQueens]);
@@ -76,6 +81,12 @@ namespace CSP
             var currentBoard = CreateBoard();
             if (board.All(x => x != 0))
             {
+                if (first)
+                {
+                    watch.Stop();
+                    TimeOfOneSolution = watch.ElapsedMilliseconds;
+                    first = false;
+                }
                 SaveSolution();
                 return true;
             }

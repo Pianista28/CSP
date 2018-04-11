@@ -45,6 +45,15 @@ namespace CSP
             return solutions;
         }
 
+        private static List<int[,]> RunLatinSquareFC(LatinSquareFC latinSquare)
+        {
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            var solutions = latinSquare.FindSolution();
+            watch.Stop();
+            Console.WriteLine("  Dla LatinSquareFC {3}\nLiczba rozwiązań: {0} \nCzas znalezienia wszystkich rozwiązań: {1}ms \nCzas znalezienia jednego rozwiązania: {2}ms", solutions.Count, watch.ElapsedMilliseconds, latinSquare.TimeOfOneSolution, latinSquare._size);
+            return solutions;
+        }
+
         static void PrintNQueens(List<int[]> solutions)
         {
             foreach (var solution in solutions)
@@ -60,36 +69,16 @@ namespace CSP
 
         static void Main(string[] args)
         {
-            int n = 4;
+            int n = 2;
 
-            //NQueensFC nQueensFC = new NQueensFC(n, ValueMode.StartEnd, VariableMode.Ascending);
-            //RunNQueensFC(nQueensFC);
-
-            //nQueensFC = new NQueensFC(n, ValueMode.Ascending, VariableMode.Ascending);
-            //RunNQueensFC(nQueensFC);
-
-            //nQueensFC = new NQueensFC(n, ValueMode.StartEnd, VariableMode.StartEnd);
-            //RunNQueensFC(nQueensFC);
-
-            //nQueensFC = new NQueensFC(n, ValueMode.Ascending, VariableMode.StartEnd);
-            //RunNQueensFC(nQueensFC);
-
-            LatinSquare latinSquare = new LatinSquare(n, ValueMode.Ascending, VariableMode.Ascending);
-            RunLatinSquare(latinSquare);
-            latinSquare = new LatinSquare(n, ValueMode.Ascending, VariableMode.StartEnd);
-            RunLatinSquare(latinSquare);
-            latinSquare = new LatinSquare(n, ValueMode.StartEnd, VariableMode.Ascending);
-            RunLatinSquare(latinSquare);
-            latinSquare = new LatinSquare(n, ValueMode.StartEnd, VariableMode.StartEnd);
-            RunLatinSquare(latinSquare);
-            latinSquare = new LatinSquare(n + 1, ValueMode.Ascending, VariableMode.Ascending);
-            RunLatinSquare(latinSquare);
-            latinSquare = new LatinSquare(n + 1, ValueMode.Ascending, VariableMode.StartEnd);
-            RunLatinSquare(latinSquare);
-            latinSquare = new LatinSquare(n + 1, ValueMode.StartEnd, VariableMode.Ascending);
-            RunLatinSquare(latinSquare);
-            latinSquare = new LatinSquare(n + 1, ValueMode.StartEnd, VariableMode.StartEnd);
-            RunLatinSquare(latinSquare);
+            LatinSquareFC latinSquare = new LatinSquareFC(n, ValueMode.Ascending, VariableMode.Ascending);
+            RunLatinSquareFC(latinSquare);
+            latinSquare = new LatinSquareFC(n + 1, ValueMode.Ascending, VariableMode.Ascending);
+            RunLatinSquareFC(latinSquare);
+            latinSquare = new LatinSquareFC(n + 2, ValueMode.Ascending, VariableMode.Ascending);
+            RunLatinSquareFC(latinSquare);
+            latinSquare = new LatinSquareFC(n + 3, ValueMode.Ascending, VariableMode.Ascending);
+            RunLatinSquareFC(latinSquare);
 
             Console.ReadLine();
         }    
